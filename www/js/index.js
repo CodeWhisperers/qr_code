@@ -92,7 +92,7 @@ function scanQr(){
 function generateQr(){
     try{
         var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
-        scanner.encode("TEXT_TYPE", "http://www.nytimes.com",
+        scanner.encode("TEXT_TYPE", "http://github.com/CodeWhisperers/qr_code",
             function(success) {
                 alert("encode success: " + success);
             },

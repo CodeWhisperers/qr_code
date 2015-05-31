@@ -9,12 +9,12 @@
         <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
     </feature>
     <allow-intent href="market:*" />
-    <name>HelloWorld</name>
+    <name>QR code</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Scan and generate a QR code.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        CodeWhisperers
     </author>
     <content src="index.html" />
     <access origin="*" />
