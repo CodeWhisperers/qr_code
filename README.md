@@ -1,5 +1,7 @@
-# qr_code
+# QR code
 Cordova QR code scanner and reader demo
+
+> **Prerequisite:** Install NodeJs, Cordova, Phonegap.
 
 ```bash
 cordova create qrcode com.example.qrcode "QrCode"
@@ -8,6 +10,8 @@ cordova platform add android
 cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
 cordova build android
 ```
+
+Add the following to **js/index.js**
 
 Scan
 ```javascript
@@ -52,7 +56,7 @@ function generateQr(){
 }
 ```
 
-Add buttons and asign click listeners
+Add buttons to **index.html** and asign click listeners
 ```javascript
 onDeviceReady: function() {
 		/// ...
