@@ -7,13 +7,15 @@ Cordova QR code scanner and reader demo
 cordova create qrcode com.example.qrcode "QrCode"
 cd qrcode
 cordova platform add android
-cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
+cordova plugin add https://github.com/jonathannaguin/BarcodeScanner.git
+#cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
+#cordova plugin add com.phonegap.plugins.barcodescanner
 cordova build android
 ```
 
 Add the following to **js/index.js**
 
-Scan
+###Scan
 ```javascript
 function scanQr(){
     try{
@@ -37,7 +39,7 @@ function scanQr(){
 }
 ```
 
-Generate
+###Generate
 ```javascript
 function generateQr(){
     try{
@@ -62,4 +64,57 @@ onDeviceReady: function() {
 		/// ...
 		document.getElementById("scan").addEventListener("click", scanQr, false);
         document.getElementById("generate").addEventListener("click", generateQr, false);
+```
+
+##Extra sugar
+
+HTML
+```html
+<div class="app" id="splash">
+    <h1>Apache Cordova</h1>
+    <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+    </div>
+</div>
+<div class="app" id="qr">
+    <br/>
+    <h1>QR code</h1>
+    <div id="scan" class="button" >SCAN</div>
+    <div id="generate" class="button" >Generate</div>
+</div>
+```
+
+CSS
+```css
+
+.button {
+    margin: 10px auto;
+    display:block;
+    width: 100px;
+    height: 30px;
+    background: red;
+    color:white;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#splash {
+    display: block;
+}
+
+#qr {
+    display: none;
+}
+```
+
+JS
+```javascript
+onDeviceReady: function() {
+		/// ...
+		// show buttons div
+		document.getElementById("splash").style.display = 'none';
+        document.getElementById("qr").style.display = 'block';
 ```
