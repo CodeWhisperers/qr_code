@@ -134,3 +134,7 @@ h1 {
 #qr {
     display: none;
 }
+
+.hidden{
+    display:none;
+}
