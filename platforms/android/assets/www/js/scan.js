@@ -17,10 +17,7 @@ function scanQr()
 
         scanner.scan(
             function (result) {
-//                alert("We got a barcode\n" +
-//                    "Result: " + result.text + "\n" +
-//                    "Format: " + result.format + "\n" +
-//                    "Cancelled: " + result.cancelled);
+                // result = {text: string, format: 'QR_TEXT', canceled:false}
                 if (result.text != 'abcd') {
                     $('#congrats').removeClass('hidden');
                 } else {
@@ -29,7 +26,6 @@ function scanQr()
             },
             function (error) {
                 $('#denied').removeClass('hidden');
-                //alert("Scanning failed: " + error);
             }
         );
     } catch (err) {
