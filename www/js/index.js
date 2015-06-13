@@ -68,4 +68,9 @@ var app = {
 
 app.initialize();
 
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
+if (isChrome) {
+        // hack to test in chrome
+        app.onDeviceReady();
+    }
