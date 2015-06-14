@@ -19,6 +19,7 @@ function scanQr()
                 // result = {text: string, format: 'QR_TEXT', canceled:false}
                 if (result.text != 'abcd') {
                      lvlUp();
+                     finishCurrentQuest();
                     $('#congrats').removeClass('hidden');
                 } else {
                     $('#denied').removeClass('hidden');

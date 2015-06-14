@@ -36,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand pull-right" href="index.html">eQuest</a>
+            <a class="navbar-brand pull-right" href="home.html">eQuest</a>
         </div>
     </div>
 </nav>
@@ -50,7 +50,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="quests.html"><i class="fa fa-star"></i> Quests</a></li>
                     <li><a href="profile.html"><i class="fa fa-user"></i> Profile</a></li>
-                    <li><a href="#"><i class="fa fa-qrcode"></i> QR Reader</a></li>
+                    <li><a href="scan.html"><i class="fa fa-qrcode"></i> QR Reader</a></li>
+                    <li><a href="generate.html"><i class="fa fa-qrcode"></i> QR Generator</a></li>
                     <li><a href="map.html"><i class="fa fa-street-view"></i> Map</a></li>
                 </ul>
             </div>
@@ -98,6 +99,13 @@
             <p class="list-group-item-text">Try to find a special relic of special value to the buisness.</p>
         </a>
     </div>
+    <div class="hidden quest-model">
+        <a href="#" class="list-group-item">
+            <span class="label label-success pull-right">+100 EXP</span>
+            <h4 class="list-group-item-heading">1. Find HR</h4>
+            <p class="list-group-item-text">Try to find the HR location.</p>
+        </a>
+    </div>
 </div>
 <!-- //CONTENT// -->
 
@@ -116,6 +124,7 @@
 <script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
 
 <script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/quests.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 </body>
