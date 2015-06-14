@@ -49,6 +49,9 @@ var app = {
             localCallback();
         }
 
+        $('#lvl').text(getUserLevel());
+        $('#userName').text(getUser());
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

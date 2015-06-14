@@ -45,8 +45,10 @@ var app = {
                             );
                         };
                     }
+        if ( typeof localCallback != 'undefined' ) {
+            localCallback();
+        }
 
-        localCallback();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -66,29 +68,72 @@ var app = {
     }
 };
 
-function createCookie(name,value,days) {
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires = "; expires="+date.toGMTString();
-	}
-	else var expires = "";
-	document.cookie = name+"="+value+expires+"; path=/";
+function createCookie(name,value) {
+    window.localStorage.setItem(name, value);
+//	if (days) {
+//		var date = new Date();
+//		date.setTime(date.getTime()+(days*24*60*60*1000));
+//		var expires = "; expires="+date.toGMTString();
+//	}
+//	else var expires = "";
+//
+//	document.cookie = name+"="+value+expires+"; path=/";
 }
 
 function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;
+    return window.localStorage.getItem(name);
+//	var nameEQ = name + "=";
+//	var ca = document.cookie.split(';');
+//    alert(ca);
+//	for(var i=0;i < ca.length;i++) {
+//		var c = ca[i];
+//		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+//		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+//	}
+//	return null;
 }
 
 function eraseCookie(name) {
-	createCookie(name,"",-1);
+    window.localStorage.removeItem(name);
+
+}
+
+
+function getUser(){
+    return readCookie("loginUserEmail");
+}
+
+function getUserLevelKey(){
+    var email = getUser();
+    return email+"Level";
+}
+
+function getUserLevel(){
+     var email = getUser();
+     if(null==email){
+        return 0;
+     }else{
+        var userLevel = email+"Level";
+        var cookieExists = readCookie(userLevel);
+        if(null!=cookieExists){
+            return cookieExists;
+        }else{
+            createCookie(userLevel,0);
+            return 0;
+        }
+     }
+}
+
+/**
+* Will level up the current profile
+**/
+function lvlUp(){
+    var user = getUser();
+    if(user){
+        var level = getUserLevel();
+        var userLevelKey = getUserLevelKey();
+        createCookie(userLevelKey,level+1);
+    }
 }
 
 app.initialize();
