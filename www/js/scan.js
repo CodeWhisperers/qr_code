@@ -4,8 +4,6 @@
 function localCallback()
 {
     //document.getElementById("scanqr").addEventListener("click", scanQr, false);
-
-alert(readCookie("loginUserEmail"));
     scanQr();
 
 }
@@ -20,6 +18,7 @@ function scanQr()
             function (result) {
                 // result = {text: string, format: 'QR_TEXT', canceled:false}
                 if (result.text != 'abcd') {
+                     lvlUp();
                     $('#congrats').removeClass('hidden');
                 } else {
                     $('#denied').removeClass('hidden');

@@ -96,6 +96,44 @@ function eraseCookie(name) {
 
 }
 
+
+function getUser(){
+    return readCookie("loginUserEmail");
+}
+
+function getUserLevelKey(){
+    var email = getUser();
+    return email+"Level";
+}
+
+function getUserLevel(){
+     var email = getUser();
+     if(null==email){
+        return 0;
+     }else{
+        var userLevel = email+"Level";
+        var cookieExists = readCookie(userLevel);
+        if(null!=cookieExists){
+            return cookieExists;
+        }else{
+            createCookie(userLevel,0);
+            return 0;
+        }
+     }
+}
+
+/**
+* Will level up the current profile
+**/
+function lvlUp(){
+    var user = getUser();
+    if(user){
+        var level = getUserLevel();
+        var userLevelKey = getUserLevelKey();
+        createCookie(userLevelKey,level+1);
+    }
+}
+
 app.initialize();
 
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
