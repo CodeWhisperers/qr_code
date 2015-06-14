@@ -5,6 +5,7 @@ function localCallback()
 {
     //document.getElementById("scanqr").addEventListener("click", scanQr, false);
 
+alert(readCookie("loginUserEmail"));
     scanQr();
 
 }

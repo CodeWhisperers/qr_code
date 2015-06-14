@@ -45,8 +45,10 @@ var app = {
                             );
                         };
                     }
+        if ( typeof localCallback != 'undefined' ) {
+            localCallback();
+        }
 
-        localCallback();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
